@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin page</title>
+
+
+</head>
+<body>
+    <h2>add fleT</h2>
+    <form id="feetform">
+        <label>Registration No:</label><br>
+        <input type="test" id="regNo"><br><br>
+        <label>category</label><br><br>
+        <select id="category">
+            <option value="">Select</option>
+            <option>Auto</option>
+            <option>car</option>
+            <option>truck</option>
+
+            <option>Bus</option>
+
+        </select><br><br>
+        <label>Driver name:</label><br>
+        <input type="test" id="driver"><br><br>
+        <label>is available></label>
+        <label >
+            <input type="checkbox" id="avaialble"><br><br>
+            <button type="button" onclick="addFleet()">Add Fleet</button>
+        </label>
+    </form>
+    <hr>
+    <h2>fleet list</h2>
+    <div id ="fleet container">
+
+    </div>
+    <script>
+        let fleetArr=[];
+        function addFleet() {
+            let reg=addFleetdocument.getElementbyId("regNo").value;
+            let cat=addFleetdocument.getElementbyId("category").value;
+            let driver=addFleetdocument.getElementbyId("driver").value
+            let avail=addFleetdocument.getElementbyId("avaialble").checked;
+            if (!reg|| !cat || !driver){
+                alert("please fill all field");
+                return:addFleet
+            }
+            let obj={
+                regNo:reg,
+                category:cat,
+                driver:driver,
+                available:avail
+            };
+            fleetArr.push(obj);rendrFleet();
+            document.getElementById("fleetForm").reset();
+
+
+        }
+        function renderFleet() {
+            let box=document.getElementById("fleetContainer");
+            box.innerHTML="";
+            fleetArr.forEach((item,index)=>
+        {
+            let div=document.createElement("div");
+            div.style.border="1px solid black";
+            div.style.padding="10px ";
+            div.style.margin="10px ";
+            
+        })
+        }
+    </script>
+</body>
+</html>
